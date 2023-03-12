@@ -1,0 +1,20 @@
+#spring:
+#  datasource:
+#    url: jdbc:h2:mem:test
+#    username: sa
+#    password:
+#    driver-class-name: org.h2.Driver
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: create # @Entity정보를 보고 -> 기존에 있는 테이블 drop -> 새로 create -> 끝
+#    properties:
+#      hibernate:
+##        show_sql: true
+#        format_sql: true
+# 위에 설정이 다 없어도 스프링은 기본적으로 메모리에 저장함. ㅅㅂ 개사기네
+
+
+logging.level:
+  org.hibernate.SQL: debug
+  org.hibernate.type: trace #스프링 부트 2.x, hibernate5
