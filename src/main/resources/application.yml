@@ -6,6 +6,9 @@ spring:
     password: mlucky9609
 #    driver-class-name: org.h2.Driver
     driver-class-name: com.mysql.cj.jdbc.Driver
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
 
 
   jpa:
