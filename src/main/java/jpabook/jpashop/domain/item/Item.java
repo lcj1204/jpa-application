@@ -3,6 +3,7 @@ package jpabook.jpashop.domain.item;
 import jpabook.jpashop.domain.Category;
 import jpabook.jpashop.exception.NotEnoughStockExceptioin;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -14,6 +15,7 @@ import java.util.List;
 @DiscriminatorColumn(name = "dtype")
 @Getter
 @Setter
+@NoArgsConstructor
 public abstract class Item {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +29,7 @@ public abstract class Item {
     @ManyToMany(mappedBy = "items")
     private List<Category> categories = new ArrayList<Category>(); // 여기에 <> 안에 category는 왜 집어 넣어?
 
+    //== 비즈니스 로직 ==//
     public void addStock(int quantity) {
         this.stockQuantity += quantity;
     }
@@ -39,12 +42,11 @@ public abstract class Item {
         this.stockQuantity = restStock;
     }
 
-    // 이건 안하네? 얜 뭐지
-//    @Enumerated(value = EnumType.STRING)
-//    private Dtype dtype;
-
-
-    //== 비즈니스 로직 ==//
+    public void change(String name, int price, int stockQuantity) {
+        this.name = name;
+        this.price = price;
+        this.stockQuantity = stockQuantity;
+    }
 
     // 상품 등록
 
