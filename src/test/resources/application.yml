@@ -1,4 +1,20 @@
-#spring:
+spring:
+  datasource:
+    #    url: jdbc:h2:tcp://localhost/~/jpashop
+    url: jdbc:mysql://localhost:3306/jpashop
+    username: root
+    password: mlucky9609
+    #    driver-class-name: org.h2.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+  jpa:
+    hibernate:
+      ddl-auto: create # @Entity정보를 보고 -> 기존에 있는 테이블 drop -> 새로 create -> 끝
+    properties:
+      hibernate:
+        #        show_sql: true
+        format_sql: true
 #  datasource:
 #    url: jdbc:h2:mem:test
 #    username: sa
