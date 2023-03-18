@@ -1,5 +1,6 @@
 package jpabook.jpashop.domain;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,4 +27,15 @@ public class Member {
     @OneToMany(mappedBy = "member")
     private List<Order> orders = new ArrayList<>();
 
+    public Member() {
+    }
+
+    //== 빌더 타입 ==//
+    @Builder
+    public Member(Long id, String name, Address address, List<Order> orders) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.orders = orders;
+    }
 }
