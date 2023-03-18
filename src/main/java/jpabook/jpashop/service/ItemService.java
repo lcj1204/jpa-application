@@ -24,6 +24,14 @@ public class ItemService {
         itemRepository.save(item);
     }
 
+    @Transactional
+    public void updateItem(Long itemId, String name, int price, int stockQuantity) {
+        Item item = itemRepository.findOne(itemId);
+        item.change(name, price, stockQuantity);
+//        item.setName(name);
+//        item.setPrice(price);
+//        item.setStockQuantity(stockQuantity);
+    }
     // 전체 상품 목록 조회
     public List<Item> findItems() {
         return itemRepository.findAll();
