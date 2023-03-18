@@ -32,7 +32,11 @@ public class MemberController {
             return "members/createMemberForm"; //  에러가 났을 때 빨간 박스로됨.
         }
 
-        Address address = new Address(form.getCity(), form.getStreet(), form.getZipcode());
+//        Address address = new Address(form.getCity(), form.getStreet(), form.getZipcode());
+        Address address = Address.builder()
+                .city(form.getCity())
+                .street(form.getStreet())
+                .zipcode(form.getZipcode()).build();
 
         Member member = new Member();
         member.setName(form.getName());
